@@ -36,7 +36,7 @@ class knn:
         Predict labels for X_test and return predicted labels.
         :param self: self.
         :param X_test: Test data.
-        :return: Predicted labels,
+        :return: Predicted labels.
         """
 
     def neighbours_indices(self, x):
@@ -70,30 +70,33 @@ class knn:
         """
         return np.linalg.norm(x1-x2)
 
-    class RegressionKNN:
-        def __init__(self, k):
-            """
-            Object instantiation, parent class instantiation.
-            :param k:
-            """
+class RegressionKNN(knn):
+    def __init__(self, k):
+        """
+        Object instantiation, parent class instantiation.
+        :param k:
+        """
+        super().__init__(k)
 
-        def predict(self, X_test):
-            """
-            Predict labels for X_test and return predicted labels.
-            :param X_test:
-            :return:
-            """
+    def predict(self, X_test):
+        """
+        Predict labels for X_test and return predicted labels.
+        :param X_test: Test data.
+        :return: Predicted labels.
+        """
 
-    class ClassificationKNN:
-        def __init__(self, k):
-            """
-            Object instantiation, parent class instantiation.
-            :param k:
-            """
 
-        def predict(self, X_test):
-            """
-            Predict labels for X_test and return predicted labels.
-            :param X_test:
-            :return:
-            """
+class ClassificationKNN(knn):
+    def __init__(self, k):
+        """
+        Object instantiation, parent class instantiation.
+        :param k: How many neighbors
+        """
+        super().__init__(k)
+
+    def predict(self, X_test):
+        """
+        Predict labels for X_test and return predicted labels.
+        :param X_test: Test data.
+        :return: Predicted labels
+        """
