@@ -32,14 +32,11 @@ def model_selection_cross_validation(model, k_list, X, y, folds, metric):
     :param metric:
     :return:
     """
-
     mean_results = []
     std_results = []
-
     for index in range(len(k_list)):
         model_obj = model(k_list[index])
         mean_results[index] = sum(cross_validation_score(model_obj, X, y, folds, metric))/len(folds)
         np_std = np.array(cross_validation_score(model_obj, X, y, folds, metric))
         std_results[index] = np.std(np_std)
-
     return mean_results, std_results
